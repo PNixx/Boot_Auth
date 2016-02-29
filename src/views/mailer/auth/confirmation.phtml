@@ -1,0 +1,11 @@
+<?
+/**
+ * @type Boot_View $this
+ */
+?>
+
+<p>Welcome <?= $email ?>!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="<?= Boot::getInstance()->config->auth->mailer->host ?>/<?= \Boot\Auth\Routes::getName() ?>/confirmation?token=<?= $token ?>">Confirm my account</a></p>

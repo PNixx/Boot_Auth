@@ -1,0 +1,20 @@
+<?
+/**
+ * @type Boot_View   $this
+ * @var ActiveRecord $resource
+ */
+use Boot\Auth\Routes;
+
+?>
+<h2>Resend confirmation instructions</h2>
+
+<? if( Boot_Flash::get('alert') ): ?>
+	<div class="error"><?= Boot_Flash::get('alert') ?></div>
+<? endif ?>
+
+<? $f = new Boot_Form_Lib(Routes::getName(), new Form_Row(), ['method' => 'post']) ?>
+<div><?= $f->input('email', ['as' => 'email', 'required' => 'required']) ?></div>
+<?= $f->submit('Resend confirmation instructions') ?>
+<? $f->end() ?>
+
+<?= $this->render('shared/_links') ?>

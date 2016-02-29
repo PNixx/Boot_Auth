@@ -1,0 +1,21 @@
+{
+	"name": "pnixx/boot-auth",
+	"version": "1.0.0",
+	"description": "Auth library for Boot framework",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Sergey Odintsov",
+			"email": "nixx.dj@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.6.0",
+		"pnixx/boot": "dev-routes"
+	},
+	"autoload": {
+		"classmap": [
+			"src/"
+		]
+	}
+}

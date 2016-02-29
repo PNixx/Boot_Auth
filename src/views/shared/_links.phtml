@@ -1,0 +1,23 @@
+<?
+/**
+ * @type Boot_View $this
+ * @var Boot_Translate_Lib $translate
+ */
+?>
+
+<? if( $this->controller_name() != 'session' ): ?>
+	<div><?= $this->link_to('Sign In', $this->users_sign_in_path()) ?></div>
+<? endif ?>
+
+<? if( $this->controller_name() != 'registration' ): ?>
+	<div><?= $this->link_to('Sign Up', $this->users_sign_up_path()) ?></div>
+<? endif ?>
+
+<? if( $this->controller_name() != 'password' && $this->controller_name() != 'registration' ): ?>
+	<div><?= $this->link_to('Forgot your password?', $this->users_password_path()) ?></div>
+<? endif ?>
+
+<? if( $this->controller_name() != 'confirmation' ): ?>
+	<div><?= $this->link_to('Didn\'t receive confirmation instructions?', $this->users_confirmation_path()) ?></div>
+<? endif ?>
+

@@ -1,0 +1,27 @@
+<?
+/**
+ * @type Boot_View         $this
+ * @var ActiveRecord       $resource
+ */
+use Boot\Auth\Routes;
+?>
+	<h2>Forgot your password?</h2>
+
+<? if( $resource->errors->count() ): ?>
+	<ul>
+		<? foreach( $resource->errors->messages() as $error ): ?>
+			<li><?= $error ?></li>
+		<? endforeach ?>
+	</ul>
+<? endif ?>
+
+<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => '/' . Routes::getName() . '/password/update']) ?>
+	<?= $f->input('reset_password_token', ['as' => 'hidden']) ?>
+	<div><?= $f->input('password', ['as' => 'password', 'required' => 'required', 'value' => '']) ?></div>
+	<div><?= $f->input('confirm_password', ['as' => 'password', 'required' => 'required', 'value' => '']) ?></div>
+	<div class="actions">
+		<?= $f->submit('Change my password') ?>
+	</div>
+<? $f->end() ?>
+
+<?= $this->render('shared/_links') ?>

@@ -1,0 +1,23 @@
+<?
+/**
+ * @type Boot_View         $this
+ * @var ActiveRecord       $resource
+ */
+use Boot\Auth\Routes;
+?>
+<h2>Forgot your password?</h2>
+
+<? if( $resource->errors->count() ): ?>
+	<ul>
+		<? foreach( $resource->errors->messages() as $error ): ?>
+			<li><?= $error ?></li>
+		<? endforeach ?>
+	</ul>
+<? endif ?>
+
+<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => '/' . Routes::getName() . '/password']) ?>
+	<div><?= $f->input('email', ['as' => 'email', 'required' => 'required']) ?></div>
+	<?= $f->submit('Send me reset password instructions') ?>
+<? $f->end() ?>
+
+<?= $this->render('shared/_links') ?>

@@ -1,0 +1,25 @@
+<?
+/**
+ * @type Boot_View         $this
+ * @var ActiveRecord       $resource
+ */
+use Boot\Auth\Routes;
+?>
+<h1><?= $this->t("Sign Up") ?></h1>
+
+<? if( $resource->errors->count() ): ?>
+<ul>
+	<? foreach( $resource->errors->messages() as $error ): ?>
+		<li><?= $error ?></li>
+	<? endforeach ?>
+</ul>
+<? endif ?>
+
+<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => '/' . Routes::getName() . '/sign_up']) ?>
+	<div><?= $f->input('email', ['as' => 'email', 'required' => 'required']) ?></div>
+	<div><?= $f->input('password', ['as' => 'password', 'required' => 'required', 'value' => '']) ?></div>
+	<div><?= $f->input('confirm_password', ['as' => 'password', 'required' => 'required', 'value' => '']) ?></div>
+	<?= $f->submit('Sign Up') ?>
+<? $f->end() ?>
+
+<?= $this->render('shared/_links') ?>
