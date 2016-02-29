@@ -36,7 +36,7 @@ class Registration extends Main {
 			AuthMailer::confirmation($resource->email, $resource->confirmation_token);
 
 			//Уходим на главную
-			$this->setFlash('notice', $this->translate->_('auth.confirmations.send_instructions'));
+			$this->setFlash('notice', $this->t('auth.confirmations.send_instructions'));
 			$this->_redirect('/');
 		} catch(AuthException $e) {
 			$this->view->resource = $resource;

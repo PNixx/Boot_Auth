@@ -2,23 +2,23 @@
 
 Заходим в консоль в корневою директорию и вводим команду:
 
-	```console
-	composer require pnixx/boot-auth
-	```
+```console
+composer require pnixx/boot-auth
+```
 
 После установки запускаем генератор модели:
 	
-	```console
-	php vendor/pnixx/boot-auth/generate.php MODEL
-	```
+```console
+php vendor/pnixx/boot-auth/generate.php MODEL
+```
 	
 Замените MODEL на имя вашей модели (например `user`). После выполнения команды будет создана модель и соответствующая миграция.
 
 Далее, добавляем инициализацию в файл `application/config/initialize.php`:
 
-	```console
-	Boot\Auth::initialize();
-	```
+```php
+Boot\Auth::initialize();
+```
 	
 Добавляем данные о созданной модели в конфиг `application/config/application.ini`:
 
@@ -30,19 +30,19 @@
 
 Добавляем маршруты в файл `application/config/routes.php`:
 
-	```php
-	Boot\Auth\Routes::init_for('users');
-	```
+```php
+Boot\Auth\Routes::init_for('users');
+```
 	
 ##Фильтры в контроллере
 
 Добавляем в переменную $before_action в каждом контроллере, в котором требуется авторизация:
 
-	```php
-	public $before_action = [
-		'authenticate_user' => []
-	];
-	```
+```php
+public $before_action = [
+	'authenticate_user' => []
+];
+```
 	
 ##Конфигурация контроллера
 

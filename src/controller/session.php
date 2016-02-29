@@ -2,6 +2,7 @@
 namespace Boot\Auth\Controller;
 
 use Boot\Auth\Routes;
+use Boot\AuthException;
 use Boot\Model\Auth_Trait;
 
 /**
@@ -33,20 +34,21 @@ class Session extends Main {
 			$this->_redirect('/');
 		}
 
-		//Авторизуем
-		$resource = $model::login($this->getParam(Routes::getName())->permit(['email', 'password']));
+		try {
+			//Авторизуем
+			$resource = $model::login($this->getParam(Routes::getName())->permit(['email', 'password']));
 
-		//Если авторизовали успешно
-		if( $resource === true ) {
-			$this->setFlash('notice', $this->t('auth.sessions.signed_in'));
-			$this->_redirect('/');
-		} elseif( $resource === null ) {
-			$this->setFlash('notice', $this->t('auth.errors.not_found'));
+			//Если авторизовали успешно
+			if( $resource === true ) {
+				$this->setFlash('notice', $this->t('auth.sessions.signed_in'));
+				$this->_redirect('/');
+			} else {
+				$this->view->resource = $resource;
+				$this->render('sign_in');
+			}
+		} catch( AuthException $e ) {
+			$this->setFlash('notice', $this->t($e->getMessage()));
 			$this->_redirect('/' . Routes::getName() . '/sign_in');
-		} else {
-			$resource->errors->add('email', 'auth.errors.invalid');
-			$this->view->resource = $resource;
-			$this->render('sign_in');
 		}
 	}
 

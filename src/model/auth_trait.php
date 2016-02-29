@@ -56,7 +56,7 @@ trait Auth_Trait {
 
 		//Проверяем пароли
 		if( $this->password != $this->confirm_password ) {
-			$this->errors->add('password', 'auth.passwords.confirmation');
+			$this->errors->add('password', 'auth.invalid.passwords.confirmation');
 		}
 
 		//Если есть ошибки, пользователь не может быть создан
@@ -78,7 +78,7 @@ trait Auth_Trait {
 
 			//Проверяем пароли
 			if( $this->password != $this->confirm_password ) {
-				$this->errors->add('password', 'auth.passwords.confirmation');
+				$this->errors->add('password', 'auth.invalid.passwords.confirmation');
 			}
 
 			//Если есть ошибки, пользователь не может быть создан
@@ -155,17 +155,29 @@ trait Auth_Trait {
 	/**
 	 * Авторизация пользователя по параметрам
 	 * @param $params
-	 * @return bool|\ActiveRecord|Auth_Trait
+	 * @return \ActiveRecord|bool|Auth_Trait
+	 * @throws AuthException
 	 */
 	static public function login($params) {
 
 		//Ищем ресурс
 		$resource = static::where(['email' => $params['email']])->row();
+		if( !$resource ) {
+			throw new AuthException('auth.errors.not_found');
+		}
 
 		//Если нашли
-		if( $resource && password_verify($params['password'], $resource->encrypted_password) ) {
-			$resource->sign_in();
+		if( password_verify($params['password'], $resource->encrypted_password) ) {
+
+			//Если пользователь подтвержден
+			if( $resource->confirmed() ) {
+				$resource->sign_in();
+			} else {
+				throw new AuthException('auth.errors.unconfirmed');
+			}
 			return true;
+		} else {
+			$resource->errors->add('email', 'auth.invalid.password');
 		}
 		return $resource;
 	}

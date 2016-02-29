@@ -1,0 +1,22 @@
+{
+	"auth.confirmations.confirmed": "Ваш адрес электронной почты успешно подтвержден",
+	"auth.confirmations.send_instructions": "В течение нескольких минут Вы получите письмо с инструкциями по подтверждению Вашего адреса электронной почты",
+
+	"auth.reset_password_instructions": "В течение нескольких минут Вы получите письмо с инструкциями по восстановлению Вашего пароля",
+	"auth.passwords.updated": "Ваш пароль успешно изменён",
+
+	"auth.sessions.signed_in": "Вход в систему выполнен",
+	"auth.sessions.signed_out": "Выход из системы выполнен",
+
+	"auth.mailer.confirmation.subject": "Инструкция по подтверждению учетной записи",
+	"auth.mailer.reset_password.subject": "Инструкция по восстановлению пароля",
+
+	"auth.invalid.email": "Не корретный email",
+	"auth.invalid.passwords.confirmation": "Пароли не совпадают",
+	"auth.invalid.password": "Неверный email или пароль",
+
+	"auth.errors.already_authenticated": "Вы уже вошли в систему",
+	"auth.errors.already_confirmed": "Ваша учетная запись уже подтверждена. Пожалуйста, попробуйте войти в систему",
+	"auth.errors.not_found": "Пользователь не найден",
+	"auth.errors.unconfirmed": "Вы должны подтвердить Ваш адрес электронной почты"
+}

@@ -6,6 +6,7 @@
  */
 namespace Boot;
 
+use Boot\Library\Translate;
 use Boot\Model\Auth_Trait;
 
 class Auth {
@@ -15,6 +16,9 @@ class Auth {
 	 */
 	static public function initialize() {
 		\Boot_Controller::register_call('authenticate_user', '\Boot\Auth');
+
+		//Загружаем языки
+		Translate::getInstance()->loadLang(realpath(__DIR__ . '/lang'));
 	}
 
 	/**

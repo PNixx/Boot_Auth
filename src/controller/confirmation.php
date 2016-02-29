@@ -25,8 +25,6 @@ class Confirmation extends Main {
 				$resource = $model::confirm($this->getParam('token'));
 				if( $resource->confirmed() ) {
 					$this->setFlash('notice', $this->t('auth.confirmations.confirmed'));
-				} else {
-					$this->setFlash('alert', $this->t('auth.confirmations.confirmed'));
 				}
 
 				//Уходим на главную
@@ -54,7 +52,7 @@ class Confirmation extends Main {
 				AuthMailer::confirmation($resource->email, $resource->confirmation_token);
 				$this->setFlash('notice', $this->t('auth.confirmations.send_instructions'));
 			}
-			$this->_redirect('/');
+			$this->_redirect('/' . Routes::getName() . '/sign_in');
 		} else {
 			$this->setFlash('notice', $this->t('auth.errors.not_found'));
 			$this->_redirect('/' . Routes::getName() . '/confirmation');
