@@ -124,8 +124,8 @@ trait Auth_Trait {
 	 */
 	private function createPassword($password) {
 		$this->encrypted_password = self::password_encrypt($password);
-		unset($this->password);
-		unset($this->confirm_password);
+		unset($this->_row->password);
+		unset($this->_row->confirm_password);
 	}
 
 	//Авторизуем пользователя

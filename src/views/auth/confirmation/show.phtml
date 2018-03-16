@@ -13,8 +13,10 @@ use Boot\Auth\Routes;
 <? endif ?>
 
 <? $f = new Boot_Form_Lib(Routes::getName(), new Form_Row(), ['method' => 'post']) ?>
-<div><?= $f->input('email', ['as' => 'email', 'required' => 'required']) ?></div>
-<?= $f->submit('Resend confirmation instructions') ?>
+<div class="form-group">
+	<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
+</div>
+<?= $f->submit('Resend confirmation instructions', ['class' => 'btn btn-primary']) ?>
 <? $f->end() ?>
 
 <?= $this->render('shared/_links') ?>

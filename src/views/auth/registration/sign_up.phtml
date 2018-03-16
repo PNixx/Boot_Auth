@@ -15,11 +15,17 @@ use Boot\Auth\Routes;
 </ul>
 <? endif ?>
 
-<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => '/' . Routes::getName() . '/sign_up']) ?>
-	<div><?= $f->input('email', ['as' => 'email', 'required' => 'required']) ?></div>
-	<div><?= $f->input('password', ['as' => 'password', 'required' => 'required', 'value' => '']) ?></div>
-	<div><?= $f->input('confirm_password', ['as' => 'password', 'required' => 'required', 'value' => '']) ?></div>
-	<?= $f->submit('Sign Up') ?>
+<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => $this->{Routes::getName() . "_register_path"}()]) ?>
+	<div class="form-group">
+		<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
+	</div>
+	<div class="form-group">
+		<?= $f->input('password', ['as' => 'password', 'required' => 'required', 'value' => '', 'class' => 'form-control']) ?>
+	</div>
+	<div class="form-group">
+		<?= $f->input('confirm_password', ['as' => 'password', 'required' => 'required', 'value' => '', 'class' => 'form-control']) ?>
+	</div>
+	<?= $f->submit('Sign Up', ['class' => 'btn btn-primary']) ?>
 <? $f->end() ?>
 
 <?= $this->render('shared/_links') ?>

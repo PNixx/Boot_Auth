@@ -15,9 +15,11 @@ use Boot\Auth\Routes;
 	</ul>
 <? endif ?>
 
-<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => '/' . Routes::getName() . '/password']) ?>
-	<div><?= $f->input('email', ['as' => 'email', 'required' => 'required']) ?></div>
-	<?= $f->submit('Send me reset password instructions') ?>
+<? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => $this->{Routes::getName() . "_password_reset_path"}()]) ?>
+	<div class="form-group">
+		<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
+	</div>
+	<?= $f->submit('Send me reset password instructions', ['class' => 'btn btn-primary']) ?>
 <? $f->end() ?>
 
 <?= $this->render('shared/_links') ?>

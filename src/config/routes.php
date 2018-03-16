@@ -5,6 +5,7 @@
  * @author  Sergey Odintsov <nixx.dj@gmail.com>
  */
 namespace Boot\Auth;
+
 class Routes {
 
 	/**
@@ -31,17 +32,17 @@ class Routes {
 		], $controllers);
 
 		//Добавляем роуты
-		\Boot_Routes::get([$name  . '/sign_in' => $controllers['session'] . '#sign_in']);
-		\Boot_Routes::post([$name . '/sign_in' => $controllers['session'] . '#create']);
-		\Boot_Routes::get([$name  . '/sign_out' => $controllers['session'] . '#sign_out']);
-		\Boot_Routes::get([$name  . '/sign_up' => $controllers['registration'] . '#sign_up']);
-		\Boot_Routes::post([$name . '/sign_up' => $controllers['registration'] . '#create']);
-		\Boot_Routes::get([$name  . '/confirmation' => $controllers['confirmation'] . '#show']);
-		\Boot_Routes::post([$name . '/confirmation' => $controllers['confirmation'] . '#create']);
-		\Boot_Routes::get([$name  . '/password' => $controllers['password'] . '#new']);
-		\Boot_Routes::post([$name . '/password' => $controllers['password'] . '#create']);
-		\Boot_Routes::get([$name  . '/password/edit' => $controllers['password'] . '#edit']);
-		\Boot_Routes::post([$name . '/password/update' => $controllers['password'] . '#update']);
+		\Boot\Routes::get([$name  . '/sign_in' => $controllers['session'] . '#sign_in']);
+		\Boot\Routes::post([$name . '/login' => $controllers['session'] . '#create']);
+		\Boot\Routes::get([$name  . '/sign_out' => $controllers['session'] . '#sign_out']);
+		\Boot\Routes::get([$name  . '/sign_up' => $controllers['registration'] . '#sign_up']);
+		\Boot\Routes::post([$name . '/register' => $controllers['registration'] . '#create']);
+		\Boot\Routes::get([$name  . '/confirmation' => $controllers['confirmation'] . '#show']);
+		\Boot\Routes::post([$name . '/confirmed' => $controllers['confirmation'] . '#create']);
+		\Boot\Routes::get([$name  . '/password' => $controllers['password'] . '#new']);
+		\Boot\Routes::post([$name . '/password/reset' => $controllers['password'] . '#create']);
+		\Boot\Routes::get([$name  . '/password/edit' => $controllers['password'] . '#edit']);
+		\Boot\Routes::post([$name . '/password/update' => $controllers['password'] . '#update']);
 	}
 
 	/**
