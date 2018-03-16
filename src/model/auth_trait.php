@@ -74,7 +74,7 @@ trait Auth_Trait {
 		parent::before_save();
 
 		//Если есть обновление пароля
-		if( isset($this->password) ) {
+		if( $this->password ) {
 
 			//Проверяем пароли
 			if( $this->password != $this->confirm_password ) {
@@ -125,7 +125,9 @@ trait Auth_Trait {
 	private function createPassword($password) {
 		$this->encrypted_password = self::password_encrypt($password);
 		unset($this->_row->password);
+		unset($this->_row_update['password']);
 		unset($this->_row->confirm_password);
+		unset($this->_row_update['confirm_password']);
 	}
 
 	//Авторизуем пользователя
