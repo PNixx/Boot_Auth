@@ -34,7 +34,7 @@ class Auth {
 
 		//Если пользователь не найден, редиректим на вторизацию
 		if( $model::getCurrentUser() == null ) {
-			\Boot_Controller::getInstance()->_redirect(\Boot_View::getInstance()->users_sign_in_path());
+			\Boot_Controller::getInstance()->_redirect(Routes::make_path('users_sign_in'));
 		}
 	}
 }
