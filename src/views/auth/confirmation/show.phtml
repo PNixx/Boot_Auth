@@ -12,7 +12,7 @@ use Boot\Auth\Routes;
 	<div class="error"><?= Boot_Flash::get('alert') ?></div>
 <? endif ?>
 
-<? $f = new Boot_Form_Lib(Routes::getName(), new Form_Row(), ['method' => 'post']) ?>
+<? $f = new Boot_Form_Lib(Routes::getName(), new Form_Row(), ['method' => 'post', 'action' => $this->users_confirmed_path()]) ?>
 <div class="form-group">
 	<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
 </div>
