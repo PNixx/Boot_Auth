@@ -6,7 +6,7 @@
 use Boot\Auth\Routes;
 
 ?>
-<h2>Resend confirmation instructions</h2>
+<h2><?= $this->t('Confirmation instructions') ?></h2>
 
 <? if( Boot_Flash::get('alert') ): ?>
 	<div class="error"><?= Boot_Flash::get('alert') ?></div>
@@ -16,7 +16,7 @@ use Boot\Auth\Routes;
 <div class="form-group">
 	<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
 </div>
-<?= $f->submit('Resend confirmation instructions', ['class' => 'btn btn-primary']) ?>
+<?= $f->submit($this->t('Resend confirmation instructions'), ['class' => 'btn btn-primary']) ?>
 <? $f->end() ?>
 
 <?= $this->render('shared/_links') ?>

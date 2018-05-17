@@ -4,8 +4,8 @@
  */
 ?>
 
-<p>Welcome <?= $email ?>!</p>
+<p><?= sprintf($this->t('Welcome %s!'), $email) ?></p>
 
-<p>You can confirm your account email through the link below:</p>
+<p><?= $this->t('You can confirm your account email through the link below') ?>:</p>
 
-<p><a href="<?= Boot::getInstance()->config->auth->mailer->host ?>/<?= \Boot\Auth\Routes::getName() ?>/confirmation?token=<?= $token ?>">Confirm my account</a></p>
+<p><a href="<?= Boot::getInstance()->config->auth->mailer->host ?>/<?= \Boot\Auth\Routes::getName() ?>/confirmation?token=<?= $token ?>"><?= $this->t('Confirm my account') ?></a></p>

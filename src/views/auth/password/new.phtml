@@ -5,7 +5,7 @@
  */
 use Boot\Auth\Routes;
 ?>
-<h2>Forgot your password?</h2>
+<h2><?= $this->t('Forgot your password?') ?></h2>
 
 <? if( $resource->errors->count() ): ?>
 	<ul>
@@ -19,7 +19,7 @@ use Boot\Auth\Routes;
 	<div class="form-group">
 		<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
 	</div>
-	<?= $f->submit('Send me reset password instructions', ['class' => 'btn btn-primary']) ?>
+	<?= $f->submit($this->t('Send me reset password instructions'), ['class' => 'btn btn-primary']) ?>
 <? $f->end() ?>
 
 <?= $this->render('shared/_links') ?>

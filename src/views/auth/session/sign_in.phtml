@@ -5,7 +5,7 @@
  */
 use Boot\Auth\Routes;
 ?>
-<h1><?= $this->t("Sign In") ?></h1>
+<h1><?= $this->t('Sign In') ?></h1>
 
 <? if( $resource->errors->count() ): ?>
 	<ul>
@@ -20,9 +20,9 @@ use Boot\Auth\Routes;
 		<?= $f->input('email', ['as' => 'email', 'required' => 'required', 'class' => 'form-control']) ?>
 	</div>
 	<div class="form-group">
-		<?= $f->input('password', ['as' => 'password', 'required' => 'required', 'class' => 'form-control']) ?>
+		<?= $f->input('password', ['as' => 'password', 'required' => 'required', 'class' => 'form-control', 'label' => $this->t('Password')]) ?>
 	</div>
-	<?= $f->submit('Sign In', ['class' => 'btn btn-primary']) ?>
+	<?= $f->submit($this->t('auth.sign_in'), ['class' => 'btn btn-primary']) ?>
 <? $f->end() ?>
 
 <?= $this->render('shared/_links') ?>

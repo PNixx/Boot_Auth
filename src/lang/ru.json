@@ -1,12 +1,12 @@
 {
 	"auth.confirmations.confirmed": "Ваш адрес электронной почты успешно подтвержден",
-	"auth.confirmations.send_instructions": "В течение нескольких минут Вы получите письмо с инструкциями по подтверждению Вашего адреса электронной почты",
+	"auth.confirmations.send_instructions": "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашего адреса электронной почты",
 
-	"auth.reset_password_instructions": "В течение нескольких минут Вы получите письмо с инструкциями по восстановлению Вашего пароля",
+	"auth.reset_password_instructions": "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля",
 	"auth.passwords.updated": "Ваш пароль успешно изменён",
 
 	"auth.sessions.signed_in": "Вход в систему выполнен",
-	"auth.sessions.signed_out": "Выход из системы выполнен",
+	"auth.sessions.signed_out": "выход из системы выполнен",
 
 	"auth.mailer.confirmation.subject": "Инструкция по подтверждению учетной записи",
 	"auth.mailer.reset_password.subject": "Инструкция по восстановлению пароля",
@@ -15,8 +15,29 @@
 	"auth.invalid.passwords.confirmation": "Пароли не совпадают",
 	"auth.invalid.password": "Неверный email или пароль",
 
-	"auth.errors.already_authenticated": "Вы уже вошли в систему",
+	"auth.errors.already_authenticated": "вы уже вошли в систему",
 	"auth.errors.already_confirmed": "Ваша учетная запись уже подтверждена. Пожалуйста, попробуйте войти в систему",
 	"auth.errors.not_found": "Пользователь не найден",
-	"auth.errors.unconfirmed": "Вы должны подтвердить Ваш адрес электронной почты"
+	"auth.errors.unconfirmed": "вы должны подтвердить Ваш адрес электронной почты",
+
+	"auth.sign_in": "Войти",
+	"Sign In": "Вход",
+	"Sign Up": "Регистрация",
+	"Forgot your password?": "Забыли пароль?",
+	"Didn't receive confirmation instructions?": "Не получили инструкцию по восстановлению?",
+	"Password": "Пароль",
+	"Confirm password": "Повторите пароль",
+	"Send me reset password instructions": "Восстановить пароль",
+	"Change my password": "Изменить пароль",
+	"Confirmation instructions": "Инструкция по восстановлению",
+	"Resend confirmation instructions": "Отправить инструкцию по восстановлению",
+
+	"Welcome %s!": "Привет %s!",
+	"You can confirm your account email through the link below": "Подтвердить вашу учетную запись можно по ссылке ниже",
+	"Confirm my account": "Подтвердить мой аккаунт",
+
+	"Hello %s!": "Привет %s!",
+	"Someone has requested a link to change your password. You can do this through the link below": "Кто-то запросил ссылку на изменение вашего пароля. Вы можете сделать это через ссылку ниже",
+	"If you didn't request this, please ignore this email.": "Если вы не запрашивали это, пожалуйста, проигнорируйте это письмо.",
+	"Your password won't change until you access the link above and create a new one.": "Ваш пароль не изменится, пока вы не перейдете к ссылке выше и не измените его."
 }

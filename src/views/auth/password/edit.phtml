@@ -5,7 +5,7 @@
  */
 use Boot\Auth\Routes;
 ?>
-	<h2>Forgot your password?</h2>
+	<h2><?= $this->t('Forgot your password?') ?></h2>
 
 <? if( $resource->errors->count() ): ?>
 	<ul>
@@ -18,13 +18,13 @@ use Boot\Auth\Routes;
 <? $f = new Boot_Form_Lib(Routes::getName(), $resource, ['method' => 'post', 'action' => $this->{Routes::getName() . "_password_update_path"}()]) ?>
 	<?= $f->input('reset_password_token', ['as' => 'hidden']) ?>
 	<div class="form-group">
-		<?= $f->input('password', ['as' => 'password', 'required' => 'required', 'value' => '', 'class' => 'form-control']) ?>
+		<?= $f->input('password', ['as' => 'password', 'required' => 'required', 'value' => '', 'class' => 'form-control', 'label' => $this->t('Password')]) ?>
 	</div>
 	<div class="form-group">
-		<?= $f->input('confirm_password', ['as' => 'password', 'required' => 'required', 'value' => '', 'class' => 'form-control']) ?>
+		<?= $f->input('confirm_password', ['as' => 'password', 'required' => 'required', 'value' => '', 'class' => 'form-control', 'label' => $this->t('Confirm password')]) ?>
 	</div>
 	<div class="actions">
-		<?= $f->submit('Change my password', ['class' => 'btn btn-primary']) ?>
+		<?= $f->submit($this->t('Change my password'), ['class' => 'btn btn-primary']) ?>
 	</div>
 <? $f->end() ?>
 
